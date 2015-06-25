@@ -12,8 +12,8 @@ Commit = DS.Model.extend
   author: DS.belongsTo('author')
   tickets: DS.hasMany('ticket')
   reviewer: DS.belongsTo('user', {async: true})
-  fix: DS.hasMany('commit', {inverse: 'fix', async: true})
-  fixed: DS.hasMany('commit', {inverse: 'fixed', async: true})
+  fix: DS.hasMany('commit', {inverse: 'fix'})
+  fixed: DS.hasMany('commit', {inverse: 'fixed'})
 
   shortHash: Ember.computed('remoteId', ->
     @get('remoteId').substr(0,6)
