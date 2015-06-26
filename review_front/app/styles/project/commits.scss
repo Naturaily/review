@@ -2,14 +2,14 @@
 
   &__commit-info {
     float: left;
-
-    &--message {
-      margin-top: 4px;
-      max-width: 500px;
-    }
   }
 
-  &__fixes {
+  &__commit-message {
+    margin-top: 4px;
+    max-width: 500px;
+  }
+
+  &__commit-fixes {
     clear: right;
     width: 318px;
     margin-top: 10px;

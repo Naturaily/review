@@ -15,13 +15,13 @@ table.table.table-striped.commits-table
               |  - expiration:
               '
               = time-relative commit.expiresAt
-            .commits-table__commit-info--message
+            .commits-table__commit-message
               commit.message
           .pull-right
             = auto-select-input value=commit.remoteId mouse-up="focus"
             .commits-table__commit-reviewer
               = commit-reviewer commit=commit
-          .commits-table__fixes.pull-right
+          .commits-table__commit-fixes.pull-right
             if commit.fix
               p
                 ul Fixed by:
