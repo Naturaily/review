@@ -1,0 +1,5 @@
+li
+  = link-to "projects" | Projects
+if admin
+  li
+    = link-to "admin" | Admin
