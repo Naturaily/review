@@ -50,6 +50,9 @@ GEM
     bourbon (3.2.4)
       sass (~> 3.2)
       thor
+    bson (1.12.3)
+    bson_ext (1.12.3)
+      bson (~> 1.12.3)
     builder (3.2.2)
     business_time (0.7.4)
       activesupport (>= 3.1.0)
@@ -119,11 +122,28 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     konf (0.0.2)
+    log4r (1.1.10)
     mail (2.6.1)
       mime-types (>= 1.16, < 3)
     method_source (0.8.2)
     mime-types (2.4.1)
     minitest (5.6.1)
+    mongo (1.12.3)
+      bson (= 1.12.3)
+    mongoriver (0.4.0)
+      bson_ext
+      log4r
+      mongo (>= 1.7)
+    mosql (0.4.3)
+      bson (~> 1.10)
+      bson_ext (~> 1.10)
+      json
+      log4r
+      mongo (~> 1.10)
+      mongoriver (= 0.4)
+      pg
+      rake
+      sequel
     multi_json (1.11.0)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -219,6 +239,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (~> 1.1)
+    sequel (4.23.0)
     shoulda-matchers (2.5.0)
       activesupport (>= 3.0.0)
     simplecov (0.9.1)
@@ -280,6 +301,7 @@ DEPENDENCIES
   kaminari
   konf
   minitest
+  mosql
   netguru_theme
   omniauth
   omniauth-github
