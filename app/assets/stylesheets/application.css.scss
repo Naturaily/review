@@ -46,23 +46,6 @@ input, textarea { width: auto; }
   margin-left: .5em;
 }
 
-ul.nav.navbar-img.navbar-right:last-child {
-  margin-right: 0;
-}
-
-.navbar img.avatar {
-  margin: 5px;
-}
-
-img.avatar {
-  width: 40px;
-  height: 40px;
-}
-
-.navbar .logout {
-  padding: 0px 15px;
-}
-
 .commit-action-buttons {
   button[disabled] {
     background-color: #999;
@@ -75,25 +58,4 @@ img.avatar {
   display: inline-block;
   margin-left: 5px;
   font-weight: bold;
-}
-
-.btn-default.copy-to-clipboard {
-  &.zeroclipboard-is-hover {
-    @extend .btn:hover;
-    @extend .btn-default:hover;
-  }
-  &.zeroclipboard-is-active {
-    @extend .btn:active;
-    @extend .btn-default:active;
-  }
-}
-ul.nav.navbar-nav.navbar-left {
-  a {
-    display: inline;
-    line-height: 50px;
-    background-color: #222;
-  }
-  a.active {
-    color: #f5a122;
-  }
 }
