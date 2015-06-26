@@ -1,6 +1,6 @@
 `import { test, moduleForComponent } from 'ember-qunit'`
 
-moduleForComponent 'nav-bar', {
+moduleForComponent 'nav-links', {
   # Specify the other units that are required for this test
   # needs: ['component:foo', 'helper:bar']
 }
