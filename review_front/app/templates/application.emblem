@@ -1,14 +1,17 @@
-nav.navbar.navbar-fixed-top.navbar-inverse
-  .navbar-header
-    = link-to 'projects.index' classNames='navbar-brand' | Review
-    ul.nav.navbar-nav.navbar-left
-      = nav-bar admin=current_user.admin
-  ul.nav.navbar-nav.navbar-right.logout
-    li
-      = logout-button 
-  ul.nav.navbar-nav.navbar-img.navbar-right
-    li
-      img.img-circle.avatar src=current_user.image_url alt=current_user.nickname
+nav.navbar.navbar-fixed-top.navbar-inverse.main-navbar
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#review-navbar-collapse" aria-expanded="false"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link-to "projects.index" classNames="navbar-brand" | Review
+    #review-navbar-collapse.collapse.navbar-collapse
+      = nav-links admin=current_user.admin
+      ul.nav.navbar-nav.navbar-right
+        li.main-navbar__logout
+          = logout-button user=current_user
 .container
   .content
     .row
