@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626124826) do
+ActiveRecord::Schema.define(version: 20150629095631) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20150626124826) do
 
   create_table "commits", force: true do |t|
     t.string   "remote_id"
-    t.string   "message"
+    t.text     "message"
     t.string   "url"
     t.string   "state"
     t.integer  "project_id"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 20150626124826) do
     t.datetime "expires_at"
     t.datetime "authored_at"
     t.integer  "reviewer_id"
+    t.string   "project_mongo_id"
+    t.string   "user_mongo_id"
+    t.string   "author_email"
   end
 
   add_index "commits", ["author_id"], name: "index_commits_on_author_id", using: :btree
@@ -62,11 +65,16 @@ ActiveRecord::Schema.define(version: 20150626124826) do
     t.string   "commit_mongo_id"
   end
 
+  add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
+
   create_table "permissions", force: true do |t|
     t.integer "project_id"
     t.integer "user_id"
-    t.boolean "allowed",    default: false
+    t.boolean "allowed",          default: false
     t.string  "mongo_id"
+    t.string  "old_level"
+    t.string  "project_mongo_id"
+    t.string  "user_mongo_id"
   end
 
   add_index "permissions", ["project_id", "user_id"], name: "index_permissions_on_project_id_and_user_id", unique: true, using: :btree
@@ -82,7 +90,7 @@ ActiveRecord::Schema.define(version: 20150626124826) do
 
   create_table "projects", force: true do |t|
     t.string  "name"
-    t.string  "url",              default: "", null: false
+    t.string  "url",              default: ""
     t.integer "trade_details",    default: 0,  null: false
     t.integer "project_owner_id"
     t.string  "mongo_id"
@@ -99,6 +107,7 @@ ActiveRecord::Schema.define(version: 20150626124826) do
     t.string  "tokenable_type"
     t.integer "tokenable_id"
     t.string  "mongo_id"
+    t.string  "tokenable_mongo_id"
   end
 
   add_index "tokens", ["tokenable_id", "tokenable_type"], name: "index_tokens_on_tokenable_id_and_tokenable_type", unique: true, using: :btree
