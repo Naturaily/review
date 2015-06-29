@@ -37,4 +37,11 @@ module MigrationHelper
       user.update(person_id: person.id) if person
     end
   end
+  def self.set_default_project_trade_details
+    Project.where(trade_details: nil).update_all(trade_details: Project.trade_details[:internal]) #use desired trade details
+  end
+  def self.set_default_permissions
+    Permission.where(old_level: 'developer').update_all(allowed: true) #adjust levels to your needs
+    Permission.where.not(old_level: 'developer').where.not(old_level: nil).update_all(allowed: false)
+  end
 end
