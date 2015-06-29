@@ -31,15 +31,14 @@ gem 'state_machine', github: 'JobV/state_machine'
 gem 'thin'
 gem 'whenever'
 
-group :development do
+group :development, :production do
   gem 'capistrano', '~> 3.2.1'
   gem 'capistrano-rails'
   gem 'capistrano-bundler'
   gem 'capistrano-bower'
   gem 'capistrano-passenger', '0.0.2'
   gem 'rvm1-capistrano3', require: false
-  gem 'better_errors'
-end
+  end
 
 group :test do
   gem 'minitest'
@@ -59,13 +58,5 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'byebug'
   gem 'pry-byebug'
-end
-
-group :production do
-  gem 'capistrano', '~> 3.2.1'
-  gem 'capistrano-rails'
-  gem 'capistrano-bundler'
-  gem 'capistrano-bower'
-  gem 'capistrano-passenger', '0.0.2'
-  gem 'rvm1-capistrano3', require: false
+  gem 'better_errors'
 end
