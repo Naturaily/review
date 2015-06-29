@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629184439) do
+ActiveRecord::Schema.define(version: 20150629141353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20150629184439) do
     t.integer  "fixed_commit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "fixes_mongo_id"
+    t.string   "fixed_mongo_id"
   end
 
   add_index "commit_fixes", ["fixed_commit_id"], name: "index_commit_fixes_on_fixed_commit_id", using: :btree
@@ -39,6 +41,9 @@ ActiveRecord::Schema.define(version: 20150629184439) do
     t.datetime "expires_at"
     t.datetime "authored_at"
     t.integer  "reviewer_id"
+    t.string   "project_mongo_id"
+    t.string   "user_mongo_id"
+    t.string   "author_email"
   end
 
   add_index "commits", ["author_id"], name: "index_commits_on_author_id", using: :btree
@@ -58,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150629184439) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "commit_mongo_id"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true, using: :btree
@@ -65,7 +71,11 @@ ActiveRecord::Schema.define(version: 20150629184439) do
   create_table "permissions", force: true do |t|
     t.integer "project_id"
     t.integer "user_id"
-    t.boolean "allowed",    default: false
+    t.boolean "allowed",          default: false
+    t.string  "mongo_id"
+    t.string  "old_level"
+    t.string  "project_mongo_id"
+    t.string  "user_mongo_id"
   end
 
   add_index "permissions", ["project_id", "user_id"], name: "index_permissions_on_project_id_and_user_id", unique: true, using: :btree
@@ -84,6 +94,7 @@ ActiveRecord::Schema.define(version: 20150629184439) do
     t.string  "url",              default: ""
     t.integer "trade_details",    default: 0,  null: false
     t.integer "project_owner_id"
+    t.string  "mongo_id"
   end
 
   create_table "tickets", force: true do |t|
@@ -96,6 +107,8 @@ ActiveRecord::Schema.define(version: 20150629184439) do
     t.string  "value"
     t.string  "tokenable_type"
     t.integer "tokenable_id"
+    t.string  "mongo_id"
+    t.string  "tokenable_mongo_id"
   end
 
   add_index "tokens", ["tokenable_id", "tokenable_type"], name: "index_tokens_on_tokenable_id_and_tokenable_type", unique: true, using: :btree
@@ -110,6 +123,7 @@ ActiveRecord::Schema.define(version: 20150629184439) do
     t.string  "provider"
     t.boolean "admin",      default: false
     t.integer "person_id"
+    t.string  "mongo_id"
   end
 
 end
