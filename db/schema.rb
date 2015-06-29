@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629135306) do
+ActiveRecord::Schema.define(version: 20150629141353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "commit_fixes", force: true do |t|
     t.integer  "fixing_commit_id"
-    t.integer  "fixed_commit_id",  null: false
+    t.integer  "fixed_commit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "fixes_mongo_id"
