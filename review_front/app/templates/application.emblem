@@ -9,9 +9,12 @@ nav.navbar.navbar-fixed-top.navbar-inverse.main-navbar
       = link-to "projects.index" classNames="navbar-brand" | Review
     #review-navbar-collapse.collapse.navbar-collapse
       = nav-links admin=current_user.admin
+
       ul.nav.navbar-nav.navbar-right
+        li
+          img.img-circle.avatar src=current_user.image_url alt=current_user.nickname
         li.main-navbar__logout
-          = logout-button user=current_user
+          = logout-button
 .container
   .content
     .row
