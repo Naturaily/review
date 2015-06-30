@@ -58,23 +58,21 @@ describe Commit do
   end
 
   describe 'state machine' do
-    let!(:commit){ described_class.create(commit_attributes) }
-    let(:lazy_commit){ described_class.create(commit_attributes) }
+    let(:commit){ described_class.create(commit_attributes) }
 
     before do
-      Timecop.freeze(Time.local(1990))
+      Timecop.freeze DateTime.new(2015, 6, 26, 15)
+      commit
     end
 
-    after do
-      Timecop.return
-    end
+    after { Timecop.return }
 
     it 'ensures initial state is `pending`' do
       expect(commit).to be_pending
     end
 
     it 'sets proper expiration date' do
-      expect(lazy_commit.expires_at).to eq(Commit::AUTOREJECT_TIME.business_hours.from_now)
+      expect(commit.expires_at).to eq '2015-06-30 15:00:00'
     end
 
     [:reject, :pass, :accept, :fixed].permutation(2).to_a.each do |from, to|
@@ -99,8 +97,9 @@ describe Commit do
     end
 
     it 'sets expires_at when passing commit' do
+      Timecop.freeze DateTime.new(2015, 6, 30, 14)
       commit.pass
-      expect(commit.reload.expires_at).to eq(Commit::AUTOREJECT_TIME.business_hours.from_now)
+      expect(commit.reload.expires_at).to eq '2015-07-02 14:00:00'
     end
   end
 
