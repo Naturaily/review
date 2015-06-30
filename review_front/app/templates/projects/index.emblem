@@ -9,7 +9,7 @@ table.table.table-bordered.table-striped
       th Review status
       th Github link
   tbody
-    each project in model
+    each project in content
       tr
         td= link-to 'project.commits' project: project.name
         td= project.rejected
