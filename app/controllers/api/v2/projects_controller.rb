@@ -1,7 +1,7 @@
 class Api::V2::ProjectsController < Api::V2::BaseController
   expose(:project)
   expose(:projects) { find_projects }
-  expose(:paginated_projects) { projects.order(name: :asc) }
+  expose(:paginated_projects) { projects.order(name: :asc).page params[:page] }
 
   def index
     respond_with paginated_projects, meta: { total_pages: project_pages_count }
