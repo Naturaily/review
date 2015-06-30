@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150629141353) do
+ActiveRecord::Schema.define(version: 20150630085543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,6 @@ ActiveRecord::Schema.define(version: 20150629141353) do
     t.integer  "fixed_commit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "fixes_mongo_id"
-    t.string   "fixed_mongo_id"
   end
 
   add_index "commit_fixes", ["fixed_commit_id"], name: "index_commit_fixes_on_fixed_commit_id", using: :btree
