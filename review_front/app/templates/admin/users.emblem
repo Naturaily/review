@@ -7,11 +7,10 @@ table.table.table-bordered
         th.project.text-center= project.name
   tbody
     each user in users
-      unless user.isMe
-        tr.user
-          th= user.nickname
-          = admin-cell user=user store=store
-          each project in projects
-            = permission-cell user=user project=project store=store
+      tr.user
+        th= user.nickname
+        = admin-cell user=user store=store currentUserId=currentUserId
+        each project in projects
+          = permission-cell user=user project=project store=store
 
 = page-numbers content=users

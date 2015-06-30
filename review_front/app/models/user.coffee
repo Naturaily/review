@@ -9,13 +9,9 @@ User = DS.Model.extend {
   person: DS.belongsTo('author')
   token: DS.attr('string')
 
-  isMe: Ember.computed('id', ->
-    @get('id') == 'me'
-  )
-
   isAdmin: Ember.computed('admin', ->
     @get('admin') == true
-  ) 
+  )
 }
 
 `export default User`
