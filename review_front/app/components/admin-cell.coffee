@@ -9,7 +9,7 @@ AdminCell = Ember.Component.extend
     setAdmin: (user)->
       user.set('admin', true).save()
 
-    removeAdmin: (user)->
-      user.set('admin', false).save()
+    removeAdmin: (user, currentUserId)->
+      user.set('admin', false).save() unless user.get('id') == currentUserId
 
 `export default AdminCell`
