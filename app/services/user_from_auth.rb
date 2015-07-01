@@ -39,7 +39,7 @@ class UserFromAuth
   end
 
   def nickname
-    info.fetch("nickname")
+    info.fetch("nickname", info.fetch('username'))
   end
 
   def email
@@ -51,6 +51,6 @@ class UserFromAuth
   end
 
   def image_url
-    info.fetch("image")
+    info.fetch("image", nil)
   end
 end

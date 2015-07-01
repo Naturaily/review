@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.1.3'
 
 gem 'rails', '~> 4.1.6'
 gem 'sass-rails'
@@ -24,6 +23,7 @@ gem 'haml'
 gem 'kaminari'
 gem 'konf'
 gem 'omniauth-github'
+gem 'omniauth-gitlab'
 gem 'omniauth'
 gem 'pg'
 gem 'rollbar'

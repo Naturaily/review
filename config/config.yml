@@ -6,6 +6,10 @@ defaults: &defaults
   github:
     appkey: <%= ENV['GITHUB_APPKEY'] %>
     secret: <%= ENV['GITHUB_SECRET'] %>
+  gitlab:
+    appkey: <%= ENV['GITLAB_APPKEY'] %>
+    secret: <%= ENV['GITLAB_SECRET'] %>
+
 development:
   <<: *defaults
   hostname: 'localhost:3000'

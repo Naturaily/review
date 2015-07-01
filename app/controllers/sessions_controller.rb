@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
   expose(:failure_message) { params[:message].presence || 'unknown' }
   expose(:github_auth_path) { '/auth/github' }
+  expose(:gitlab_auth_path) { '/auth/gitlab' }
 
   def index
   end

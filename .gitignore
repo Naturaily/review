@@ -22,3 +22,4 @@ config/sec_config.yml
 
 # Vim
 *.swp
+vendor/ruby_gems
