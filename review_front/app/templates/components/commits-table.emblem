@@ -12,9 +12,10 @@ table.table.table-striped.commits-table
           .commits-table__commit-info
             .commits-table__commit-info--author-name
               strong #{commit.author.name}
-              |  - expiration:
-              '
-              = time-relative commit.expiresAt
+              if commit.hasExpiration
+                |  - expiration:
+                '
+                = time-relative commit.expiresAt
             .commits-table__commit-message
               commit.message
           .pull-right
