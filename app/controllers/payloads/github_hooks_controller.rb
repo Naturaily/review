@@ -10,7 +10,7 @@ module Payloads
       render text: 'ok'
     end
 
-    private
+    protected
 
     def check_if_push_event
       render text: 'ignored' if github_event_type != 'push'

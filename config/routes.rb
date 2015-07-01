@@ -25,6 +25,7 @@ Review::Application.routes.draw do
 
   namespace :payloads do
     resource :github_hooks, only: [:create]
+    resource :gitlab_hooks, only: [:create]
   end
 
   get '/*path' => 'ember#bootstrap'
