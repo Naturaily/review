@@ -11,9 +11,8 @@ nav.navbar.navbar-fixed-top.navbar-inverse.main-navbar
       = nav-links admin=current_user.admin
 
       ul.nav.navbar-nav.navbar-right
-        li
-          img.img-circle.avatar src=current_user.image_url alt=current_user.nickname
         li.main-navbar__logout
+          img.img-circle.avatar src=current_user.image_url alt=current_user.nickname
           = logout-button
 .container
   .content
