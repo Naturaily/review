@@ -40,4 +40,5 @@ table.table.table-striped.commits-table
         td
           = commit-state-label reviewState=commit.state
         td.commits-table__review
-          = commit-github-button commit=commit current_user=current_user
+          unless commit.isFixed
+            = commit-github-button commit=commit current_user=current_user
