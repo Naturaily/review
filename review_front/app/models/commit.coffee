@@ -35,6 +35,10 @@ Commit = DS.Model.extend
     @get('state') == 'accepted'
   )
 
+  hasExpiration: Ember.computed('state', ->
+    @get('state') != 'fixed' and @get('state') != 'accepted'
+  )
+
   belongsToMe: Ember.computed ->
     @store.find('user', 'me').get('person') is @get('author')
 
