@@ -98,7 +98,7 @@ GEM
       railties (>= 3.1, < 5)
       sprockets (>= 2.0)
     erubis (2.7.0)
-    eventmachine (1.0.3)
+    eventmachine (1.0.8)
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
@@ -303,6 +303,7 @@ DEPENDENCIES
   database_cleaner
   decent_exposure
   ember-cli-rails
+  eventmachine (= 1.0.8)
   google-analytics-rails
   gravatar-ultimate
   haml
@@ -339,3 +340,6 @@ DEPENDENCIES
   timecop
   uglifier
   whenever
+
+BUNDLED WITH
+   1.10.6
