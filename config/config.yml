@@ -9,6 +9,7 @@ defaults: &defaults
   gitlab:
     appkey: <%= ENV['GITLAB_APPKEY'] %>
     secret: <%= ENV['GITLAB_SECRET'] %>
+    site:   '<%= ENV['GITLAB_SITE'] %>'
   bitbucket:
     appkey: <%= ENV['BITBUCKET_APPKEY'] %>
     secret: <%= ENV['BITBUCKET_SECRET'] %>
